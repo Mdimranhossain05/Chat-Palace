@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "568802439350",
+    "firebase_url": "https://chat-palace-default-rtdb.firebaseio.com",
+    "project_id": "chat-palace",
+    "storage_bucket": "chat-palace.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568802439350:android:18968dbf49e2a3d5c9f617",
+        "android_client_info": {
+          "package_name": "com.example.chatpalace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568802439350-s3n41v5glf2ucrpff79851nvp7h5t4ii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABJqXHOHO9pYHCfCjzA1ldHQEJsPUBRWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "568802439350-s3n41v5glf2ucrpff79851nvp7h5t4ii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

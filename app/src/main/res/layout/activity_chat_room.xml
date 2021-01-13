@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".chat_room"
+    android:background="#D3D1D8"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:weightSum="5">
+
+    <ScrollView
+        android:layout_weight="4.99"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <TextView
+            android:textSize="21dp"
+            android:id="@+id/msgTextShowID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></TextView>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <EditText
+            android:singleLine="true"
+            android:id="@+id/messageEdID"
+            android:textSize="18dp"
+            android:hint="write Message"
+            android:layout_weight="2.1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"></EditText>
+        <Button
+            android:singleLine="true"
+            android:textSize="15dp"
+            android:id="@+id/sendMsgBtnID"
+            android:backgroundTint="#6592A6"
+            android:text="@string/sendMessageBtnTxt"
+            android:layout_weight="0.9"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"></Button>
+    </LinearLayout>
+
+</LinearLayout>

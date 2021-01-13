@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Chat Palace</string>
+    <string name="addRoomBtnText">Add Room</string>
+    <string name="sendMessageBtnTxt">Send</string>
+</resources>
