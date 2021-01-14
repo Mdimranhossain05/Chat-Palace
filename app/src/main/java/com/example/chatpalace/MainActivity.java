@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.icu.text.Edits;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Button addRoomBtn;
     private ArrayAdapter<String> arrayAdapter;
     private ArrayList<String> listOfRooms = new ArrayList();
-    String name;
+    String name="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +52,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String room_nameVarification = roomNameEditText.getText().toString();
-                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference reference = firebaseDatabase.getReference(room_nameVarification);
-                reference.setValue("");
-                roomNameEditText.setText("");
-                roomNameEditText.requestFocus();
-
+                if (room_nameVarification.isEmpty()){
+                    roomNameEditText.setError("Please, Enter Room Name");
+                    roomNameEditText.requestFocus();
+                }else {
+                    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = firebaseDatabase.getReference(room_nameVarification);
+                    reference.setValue("");
+                    roomNameEditText.setText("");
+                    roomNameEditText.requestFocus();
+                }
             }
         });
 
@@ -90,6 +93,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, chat_room.class);
+                if (name.isEmpty()){
+                    name="Anonymous";
+                }
                 intent.putExtra("userName", name);
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
                 startActivity(intent);
@@ -103,13 +109,13 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
         alertDialogBuilder.setTitle("Enter Your Name");
         final EditText inputName = new EditText(MainActivity.this);
+        inputName.setHint("Anonymous");
         alertDialogBuilder.setView(inputName);
 
         alertDialogBuilder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 name = inputName.getText().toString();
-
             }
         });
         alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -120,6 +126,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         alertDialogBuilder.show();
-
     }
 }

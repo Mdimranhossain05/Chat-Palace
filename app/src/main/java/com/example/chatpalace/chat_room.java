@@ -50,16 +50,21 @@ public class chat_room extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String msg = messageEd.getText().toString();
-                Map<String, Object> uniqueKeyMap = new HashMap<String, Object>();
-                temp_key = root.push().getKey();
-                root.updateChildren(uniqueKeyMap);
-                DatabaseReference userReference = root.child(temp_key);
-                Map<String, Object> userMessageMap = new HashMap<String, Object>();
-                userMessageMap.put("name", userName);
-                userMessageMap.put("message", msg);
-                userReference.updateChildren(userMessageMap);
-                messageEd.setText("");
-                messageEd.requestFocus();
+                if (msg.isEmpty()) {
+                    messageEd.setError("Please, Enter Some Message");
+                    messageEd.requestFocus();
+                }else{
+                    Map<String, Object> uniqueKeyMap = new HashMap<String, Object>();
+                    temp_key = root.push().getKey();
+                    root.updateChildren(uniqueKeyMap);
+                    DatabaseReference userReference = root.child(temp_key);
+                    Map<String, Object> userMessageMap = new HashMap<String, Object>();
+                    userMessageMap.put("name", userName);
+                    userMessageMap.put("message", msg);
+                    userReference.updateChildren(userMessageMap);
+                    messageEd.setText("");
+                    messageEd.requestFocus();
+                }
             }
         });
 

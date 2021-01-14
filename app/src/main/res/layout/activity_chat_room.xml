@@ -31,7 +31,7 @@
             android:singleLine="true"
             android:id="@+id/messageEdID"
             android:textSize="18dp"
-            android:hint="write Message"
+            android:hint="Write Message"
             android:layout_weight="2.1"
             android:layout_width="0dp"
             android:layout_height="match_parent"></EditText>
